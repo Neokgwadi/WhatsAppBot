@@ -1,50 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WhatsApp Bot Builder</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neo's WhatsApp Bot</title>
+  <style>
+    :root {
+      --primary-color: #075E54;
+      --accent-color: #25D366;
+      --background-color: #F4F9F4;
+      --text-color: #333;
+      --card-bg: #FFFFFF;
+      --bot-bg: #E1F6EB;
+      --user-bg: #D9FDD3;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      margin: 0.5rem 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      max-width: 600px;
+      margin: 0.75rem auto;
+    }
+
+    .cta-btn {
+      text-align: center;
+      display: inline-block;
+      background: var(--accent-color);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.75rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 3rem 1rem;
+    }
+
+    .how-it-works {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .step {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      width: 220px;
+      transition: transform 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent-color);
+    }
+
+    .benefits {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .benefits li {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .benefits li::before {
+      content: '✔️';
+      margin-right: 0.75rem;
+      color: var(--accent-color);
+    }
+
+    .chat-demo {
+      max-width: 380px;
+      margin: 2rem auto;
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+
+    .message {
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      margin: 0.5rem 0;
+      max-width: 80%;
+      word-wrap: break-word;
+      opacity: 0;
+      animation: fadeIn 0.7s forwards;
+    }
+
+    .message.bot {
+      background: var(--bot-bg);
+      text-align: left;
+      color: var(--text-color);
+    }
+
+    .message.user {
+      background: var(--user-bg);
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .pricing {
+      background: var(--card-bg);
+      text-align: center;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      margin: 3rem auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .pricing h2 {
+      font-family: 'Pacifico', cursive;
+      color: var(--primary-color);
+      font-size: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="contact-section">
-    <h2>Get in Touch</h2>
-    <p>
-      Looking for a custom WhatsApp chatbot to help your business grow? I'm a local developer offering simple, effective solutions. Fill out the form and I’ll get back to you within a day.
-    </p>
-    <div class="contact-info">
-      <p><strong>Chat With Me:</strong> Live chat support (Mon–Fri)</p>
-      <p><strong>Email Me:</strong> <a href="mailto:chatbotdevlocal@gmail.com">chatbotdevlocal@gmail.com</a></p>
-    </div>
 
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="your@email.com" required />
-      <input type="text" placeholder="Your Business Name" />
-      <textarea placeholder="Tell me what you need..." rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <header>
+    <img src="your-photo.jpg" alt="Neo at work">
+    <h1>Neo — Bot Builder</h1>
+    <p>Empowering Emalahleni Businesses Since 2023</p>
+    <p>We've helped 50+ local shops & services automate bookings via WhatsApp.</p>
+    <a href="https://wa.me/27XXXXXX?text=hi" class="cta-btn">💬 Chat with the Demo Bot</a>
+  </header>
+
+  <section>
+    <h2 style="text-align:center; margin-bottom:1.5rem;">How It Works</h2>
+    <div class="how-it-works">
+      <div class="step">
+        <div class="step-icon">📝</div>
+        <strong>Say “Hi”</strong>
+        <p>Bot replies with a simple interactive menu.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">📋</div>
+        <strong>Select Option</strong>
+        <p>Choose from booking, services, or contact info.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">📅</div>
+        <strong>Get Confirmed</strong>
+        <p>Booking details sent to you instantly.</p>
+      </div>
+    </div>
   </section>
 
-  <footer class="footer">
-    <div class="about-me">
-      <h3>About Me</h3>
-      <p>
-        I'm a solo developer passionate about building WhatsApp bots for small businesses. No fluff — just simple, useful tools.
-      </p>
+  <section>
+    <h2 style="text-align:center;">Why It’s Great</h2>
+    <ul class="benefits">
+      <li>No missed bookings after-hours.</li>
+      <li>Quick easy-to-use menu for customers.</li>
+      <li>Instant leads logged & organized.</li>
+      <li>Setup takes minutes, no tech skills needed.</li>
+    </ul>
+  </section>
+
+  <section class="demo">
+    <h2 style="text-align:center;">Live Demo</h2>
+
+    <div class="chat-demo">
+      <div class="message bot">Hi! I'm your virtual assistant 👋. What would you like to do?</div>
+      <div class="message bot">
+        📋 <strong>Menu:</strong><br>
+        1️⃣ Book an Appointment<br>
+        2️⃣ View Services<br>
+        3️⃣ View Appointment<br>
+        4️⃣ Contact Us
+      </div>
+      <div class="message user">1</div>
+      <div class="message bot">Awesome! When would you like to book your appointment?</div>
+      <div class="message user">Tomorrow at 2pm</div>
+      <div class="message bot">✅ Done! Booking is confirmed for tomorrow at 2:00 PM. We'll send a reminder too.</div>
     </div>
-    <div class="links">
-      <h4>Connect</h4>
-      <a href="#">Facebook</a>
-      <a href="#">WhatsApp</a>
-      <a href="#">Instagram</a>
-    </div>
-    <div class="legal">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact</a>
-    </div>
-    <p class="copyright">© 2025 WhatsApp Bot Builder (Local Developer). All rights reserved.</p>
+
+    <p style="text-align:center;"><a href="https://wa.me/27XXXXXX?text=menu" class="cta-btn">📲 Get Started - First Week FREE</a></p>
+  </section>
+
+  <section class="pricing">
+    <h2>First Week Free!</h2>
+    <p>I’ll set up your WhatsApp bot for <strong>7 days free</strong>. Then it’s just <strong>R500/month</strong> to keep running.</p>
+  </section>
+
+  <footer>
+    <p>Built & supported by <strong>Neo K.</strong> in Emalahleni.</p>
+    <p>📱 <a href="https://wa.me/2739830184">+27 39 830 184</a> | ✉️ <a href="mailto:neo134282@gmail.com">neo134282@gmail.com</a></p>
   </footer>
+
 </body>
 </html>
